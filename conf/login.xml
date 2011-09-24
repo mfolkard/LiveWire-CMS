@@ -1,0 +1,9 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="byName">
+	<bean id="user" class="com.user">
+	  	<constructor-arg name="username"><value>${username}</value></constructor-arg>
+		<constructor-arg name="password"><value>${password}</value></constructor-arg>
+	</bean>
+	<bean id="login" class="com.login" />
+</beans>

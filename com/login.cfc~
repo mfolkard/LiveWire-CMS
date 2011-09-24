@@ -1,0 +1,18 @@
+<cfcomponent name="login">
+	<cffunction name="init" returntype="any">
+		<cfargument name="user" type="com.user" required="yes" />
+		<cfset variables.instance["user"] = arguments.user />
+		<cfreturn this />
+	</cffunction>
+
+	<cffunction name="login" returntype="boolean">
+		<cfset is_logged = false />
+		<cfif (variables.instance["user"].getUsername() eq "mfolkard" and variables.instance["user"].getPassword() eq "ggverdi")>
+			<cfset variables.instance["user"].setAdmin() />
+			<cfset is_logged = true />
+		<cfelseif variables.instance["user"].getUsername() eq "user" and variables.instance["user"].getPassword() eq "password">
+			<cfset is_logged = true />
+		</cfif>
+		<cfreturn is_logged />
+	</cffunction>
+</cfcomponent>

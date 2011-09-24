@@ -1,0 +1,26 @@
+<cfcomponent name="user">
+	<cffunction name="init" access="public">
+		<cfargument name="username" type="string" required="yes" />
+		<cfargument name="password" type="string" required="yes" />
+		<cfset variables.instance['username'] = arguments.username />
+		<cfset variables.instance['password'] = arguments.password />
+		<cfset variables.instance['is_admin'] = false />
+	</cffunction>
+   
+	<cffunction name="getUsername" access="public" returntype="string">
+   		<cfreturn variables.instance["username"] />
+   </cffunction>
+
+   <cffunction name="getPassword" returntype="string">
+   		<cfreturn variables.instance["password"] />
+   </cffunction>
+
+   <cffunction name="isAdmin" returntype="string">
+   		<cfreturn variables.instance["is_admin"] />
+   </cffunction>
+
+   <cffunction name="setAdmin" returntype="string">
+		<cfargument name="is_admin" type="boolean" required="false" default="true" />
+   		<cfreturn variables.instance["is_admin"] = true />
+   </cffunction>
+</cfcomponent>
